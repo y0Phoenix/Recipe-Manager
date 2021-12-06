@@ -1,0 +1,81 @@
+.buttons {
+    background-color: white;
+    text-align: center;
+    border: 2px solid red;
+    color: black;
+    padding: 15px 32px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    left: 500px;
+    top: 0px;
+}
+.buttons:hover {
+    background-color: rgb(32, 32, 32);
+}
+.text {
+    color: whitesmoke;
+}
+.form {
+    display: block;
+    margin: 0 0 15px;
+}
+input[type=text]{
+    display: inline-table;
+    width: 15%;
+    padding: 12px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    resize: vertical;
+}
+.submitbutton{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+}
+.submitbutton:hover {
+    background-color: #45a049;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+.container-child {
+    float: left;
+    width: 50%;
+    padding: 20px;
+    border: 2px solid red;
+}
+.icon {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 2px 3px;
+    font-size:15px;
+    cursor: pointer;
+}
+  .icon:hover {
+    background-color: RoyalBlue;
+}
+.pic {
+    height: 120px;
+    width: 180px;
+    position: absolute;
+    top: 50px;
+    left: 45%;
+}
+.list {
+    font-size: 30px;
+}
+table th td {
+    border: 1px solid black;
+}

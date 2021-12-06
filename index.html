@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Recipe Manager</title>
+    
+  </head>
+    <body id="body1">
+      <div id="name div">
+        <form id="name add" class="form">
+          <h1>Set A User In Order To Begin A New Recipe Form</h1>
+            <table>
+              <tr>
+                <th style="text-align: left; padding: 20px;">Select Name</th>
+                <th style="text-align: left; padding: 20px;">Don't See Your Name Add It</th>
+              </tr>
+              <tr>
+                <td>
+                  <select name="username" id="selectusername" style="width: 75%;" >
+                  <option value="" disabled selected>Select Your Name</option>
+                </td>
+                <td>
+                  <input type="text" id="username" style="width: 75%;">
+                  <button class="icon" type="submit"><i class="fa fa-plus"></i></button>
+                </td>
+            </tr>
+            </table>
+        </form>
+      </div>
+      <div id="root" class="container">
+          <div id="form div" style="background-color: gray;">
+              <h1 id="header">New Recipe Form</h1><br>
+              <form id="recipename">
+                Recipe Name<br>
+                <input id="name" type="text">
+                <button class="icon" type="submit"><i class="fa fa-plus"></i></button><br>
+              </form>
+              <br><br>
+              <div>
+                  <form id="ingredient add" class="form" style="display: inline-block;">
+                      <table>
+                          <tr>
+                            <th style="text-align: left;">Ingredient</th>
+                            <th style="text-align: left;">Amount</th>
+                          </tr>
+                          <tr>
+                            <td>
+                            <input type="text" id="ingredient" style="width: 75%;">
+                            </td>
+                            <td>
+                            <input type="text" id="ingredient amount" style="width: 75%;">
+                            <button class="icon" type="submit"><i class="fa fa-plus"></i></button><br>
+                            </td>
+                          </tr>
+                    </table>
+                  </form>
+              </div>
+              <br><br>
+              <form id="price add" class="form">
+                  <b>Recipe Price</b><br>
+                  <input type="text" id="price">
+                  <button class="icon" type="submit"><i class="fa fa-plus"></i></button><br>
+              </form>
+              <br><br>
+              <form id="submit recipe" class="form">
+              </form>
+          </div>
+        <div id="content div" style="background-color: gray;">
+          <h1 id="content h" style="text-align: center;"></h1>
+          <ul id="content" class="content"></ul>
+        </div>
+      </div>
+      <div id="recipes" class="container">
+        <form>
+          Seach Recipes<br>
+          <input type="text" id="search query">
+          <button class="icon" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </body>
+  <div id="scripts">
+    <script type="module" src="createrecipe.js"></script>
+  </div>
+</html>
