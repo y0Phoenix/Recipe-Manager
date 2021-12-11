@@ -13,7 +13,7 @@ if (isset($_POST['username'])) {
     echo 'Request Acknowledged '. $_POST['username'] .' ';
     echo ' '. $_POST['data']. ' ';
 
-    $query = "UPDATE test SET recipes='$data' WHERE name='$name'";
+    $query = "UPDATE recipes SET recipes='$data' WHERE name='$name'";
 
     if (mysqli_query($conn, $query)) {
         echo 'Updated Data Sent For '. $_POST['username'];

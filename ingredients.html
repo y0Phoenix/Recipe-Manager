@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Recipe Manager</title>
+    </head>
+    <body>
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fa fa-bars" id="btn"></i>
+            <i class="fa fa-times" id="cancel"></i>
+        </label>
+        <div class="sidebar">
+            <header>Recipe Manager</header>
+            <ul>
+                <li><a href="index.html"><i class="fa fa-qrcode"></i>Dashboard</a></li>
+                <li><a href="recipes.html"><i class="fa fa-book"></i>Recipes</a></li>
+                <li><a href="ingredients.html"><i class="fa fa-files-o"></i>Ingredients</a></li>
+                <li><a href=""><i class="fa fa-window-maximize"></i>Overview</a></li>
+            </ul>
+        </div>
+        <div id="name div" class="namebox">
+            <div style="background-color: burlywood;"><h1><a href="index.html" style="color: black; border: solid white; padding: 8px; background-color: tomato;">Recipe Manager</a></h1></div>
+            <div style="background-color: beige;"><h2 id="name h2">Set A User In Order To Begin A New Recipe Form And See Recipes</h2>
+                <form id="name add" style="margin: 4px auto; width: 600px;">
+                    <table>
+                        <tr>
+                            <th style="text-align: left; padding: 20px;">Select Name</th>
+                            <th style="text-align: left; padding: 20px;">Don't See Your Name Add It</th>
+                        </tr>
+                    <tr>
+                        <td>
+                            <select name="username" id="selectusername" style="width: 75%;" >
+                            <option value="" disabled selected>Select Your Name</option>
+                        </td>
+                        <td>
+                            <input type="text" id="username" style="width: 75%;">
+                            <button class="icon" type="submit"><i class="fa fa-plus"></i></button>
+                        </td>
+                    </tr>
+                    </table>
+                </form>
+        <div class="container">
+            <div id="iform div" style="background-color: gray;">
+                <h1>New Ingredient Form</h1>
+                <form id="ingredientform" class="form">
+                    <b>Ingredient</b><br>
+                    <input type="text" id="ingredient" style="width: 50%;">
+                    <button type="submit" class="icon"><i class="fa fa-plus"></i></button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

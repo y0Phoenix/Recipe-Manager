@@ -2,7 +2,7 @@
 //connect
 $conn = mysqli_connect('localhost', 'root', 'aaron', 'recipes');
 // create search query
-$query = 'SELECT * FROM test';
+$query = 'SELECT * FROM recipes';
 // get result
 $result = mysqli_query($conn, $query);
 // get data

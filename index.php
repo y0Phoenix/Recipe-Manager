@@ -11,7 +11,7 @@ if (isset($_POST['username'])) {
     echo 'Request Acknowledged '. $_POST['username'] .' ';
     echo 'Recipe Data '. $_POST['data']. ' ';
 
-    $query = "INSERT INTO test(name, recipes) VALUES('$name', '$data')";
+    $query = "INSERT INTO recipes(name, recipes) VALUES('$name', '$data')";
 
     if (mysqli_query($conn, $query)) {
         echo 'Data Sent';

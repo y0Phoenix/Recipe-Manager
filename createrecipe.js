@@ -1,25 +1,32 @@
-document.getElementById('name add').addEventListener('submit', nameAdd);
-document.getElementById('recipename').addEventListener('submit', recipeName);
-document.getElementById('ingredient add').addEventListener('submit', ingredientAdd);
-document.getElementById('price add').addEventListener('submit', priceAdd);
-document.getElementById('submit recipe').addEventListener('submit', submit);
-const recipeN = document.getElementById('name');
-recipeN.disabled = true;
-const ingredientN = document.getElementById('ingredient');
-ingredientN.disabled = true;
-const ingredientI = document.getElementById('ingredient amount');
-ingredientI.disabled = true;
-const priceA = document.getElementById('price');
-priceA.disabled = true;
-
+var _instructions = document.getElementById('instructions');
+var _recipeName = document.getElementById('name');
+var _ingredient = document.getElementById('ingredient');
+var _ingredientAmount = document.getElementById('ingredient amount');
+var _price = document.getElementById('price');
 var ingredients = [];
 var names = [];
 var Name = '';
 var userName = '';
 var Price = '';
+var instructions = '';
 
-async function fetch(bool) {
-    const div = document.getElementById('recipes');
+function onLoad() {
+    
+    document.getElementById('name add').addEventListener('submit', nameAdd);
+    document.getElementById('recipename').addEventListener('submit', recipeName);
+    document.getElementById('ingredient add').addEventListener('submit', ingredientAdd);
+    document.getElementById('price add').addEventListener('submit', priceAdd);
+    document.getElementById('submit recipe').addEventListener('submit', submit);
+    document.getElementById('instructions form').addEventListener('submit', iAdd);
+        _price.disabled = true;
+        _recipeName.disabled = true;
+        _ingredient.disabled = true;
+        _ingredientAmount.disabled = true;
+    fetch();
+}
+onLoad();
+
+function fetch() {
     var xhrf = new XMLHttpRequest();
     xhrf.open('GET', 'recipeget.php', true);
 
@@ -44,7 +51,6 @@ async function fetch(bool) {
 
     xhrf.send();
 }
-fetch(false);
 
 // create
 function createTable() {
@@ -62,10 +68,32 @@ function createTable() {
     }
 }
 
+function iAdd(e) {
+    e.preventDefault();
+    if (document.getElementById('instructions p')) {
+        document.getElementById('instructions p').innerHTML = "";
+    }
+    const display = document.getElementById('content');
+    var numberOfLineBreaks = (_instructions.value.match(/\n/g)||[]).length;
+    var arr = _instructions.value.split(/\r?\n/);
+    const p = document.createElement('p');
+    p.setAttribute('id', 'instructions p');
+    let output = ``;
+    for (let i = 0;
+        i < numberOfLineBreaks;
+        i++) {
+            output += `${arr[i]}<br>`;
+        }
+    p.innerHTML = `${output}`;
+    display.appendChild(p);
+    instructions = output;
+}
+
 function submit(e) {
     e.preventDefault();
     var xhrf = new XMLHttpRequest();
     xhrf.open('GET', 'recipeget.php', true);
+    document.getElementById('instructions').innerHTML = "";
     
     xhrf.onload = function() {
         if (this.status == 200) {
@@ -87,7 +115,7 @@ function submit(e) {
                         const exists = temp.name === userName;
                         if (exists) {
                             bool = true;
-                            data[i].recipes.push({name: Name, ingredients: ingredients, price: Price});
+                            data[i].recipes.push({name: Name, ingredients: ingredients, price: Price, instructions: instructions});
                             recipe = {
                                 name: data[i].name,
                                 recipes: data[i].recipes,
@@ -149,6 +177,7 @@ function submit(e) {
                             name: Name,
                             ingredients: ingredients,
                             price: Price,
+                            instructions: instructions,
                         }]
                     };
                     let xhr = new XMLHttpRequest();
@@ -300,12 +329,39 @@ function nameAdd(e) {
     
     }
     const form = document.getElementById('name add')
-    form.innerHTML = ``;
-    recipeN.disabled = false;
-    ingredientN.disabled = false;
-    ingredientI.disabled = false;
-    priceA.disabled = false;
+    form.innerHTML = `Current User ${userName} <button class="icon" id="changeuser"><i class="fa-pencil-square-o"></button>`;
+    document.getElementById('changeuser').addEventListener('click', changeUser);
+    _recipeName.disabled = false;
+    _ingredient.disabled = false;
+    _ingredientAmount.disabled = false;
+    _price.disabled = false;
 
     document.getElementById('submit recipe').innerHTML = `<button style="background-color: black; float: right;" class="submitbutton" type="submit">
     Submit New Recipe</button><br><br>`;
+    document.getElementById('name h2').innerHTML = "";
+}
+
+function changeUser(e) {
+    e.preventDefault();
+    document.getElementById('currentrecipes').innerHTML = "";
+
+    document.getElementById('name add').innerHTML = `
+    <table>
+        <tr>
+            <th style="text-align: left; padding: 20px;">Select Name</th>
+            <th style="text-align: left; padding: 20px;">Don't See Your Name Add It</th>
+        </tr>
+        <tr>
+            <td>
+                <select name="username" id="selectusername" style="width: 75%;" >
+                <option value="" disabled selected>Select Your Name</option>
+            </td>
+            <td>
+                <input type="text" id="username" style="width: 75%;">
+                <button class="icon" type="submit"><i class="fa fa-plus"></i></button>
+            </td>
+        </tr>
+    </table>`;
+    document.getElementById('name h2').innerHTML = `Set A User In Order To Begin A New Recipe Form And See Recipes`;
+    fetch();
 }

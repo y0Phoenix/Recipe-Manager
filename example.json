@@ -1,0 +1,42 @@
+[{
+    "aaron":[
+            {
+            "name":"Rice",
+            "ingredients":[
+                {"ingredient":"Rice","amount":"500g"},
+                {"ingredient":"Water","amount":"600g"},
+                {"ingredient":"Salt","amount":"15g"},	                 
+                {"ingredient":"Pepper","amount":"6g"}
+            ],
+            "price":5
+            },
+            {
+            "name":"Buns",
+            "ingredients":[
+                {"ingredient":"Flour","amount":"600g"},
+                {"ingredient":"Water", "amount":"500g"}
+            ],
+            "price":30
+            }
+    ],
+    "mom":[{
+        "name":"Chicken",
+        "ingredients":[
+            {"ingredient":"Chicken","amount":"1000g"},
+            {"ingredient":"Garlic","amount":"35g"},
+            {"ingredient":"Salt","amount":"15g"},	                 
+            {"ingredient":"Pepper","amount":"6g"}
+        ],
+        "price":10
+        },
+        {
+        "name":"Rolls",
+        "ingredients":[
+            {"ingredient":"Flour","amount":"900g"},
+            {"ingredient":"Water", "amount":"650g"},
+            {"ingredient":"Salt", "amount":"15g"}
+        ],
+        "price":35
+        }
+    ]
+}]
